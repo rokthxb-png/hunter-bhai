@@ -2,249 +2,235 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>SURYA BHAI | Official Community</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>SURYA BHAI</title>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4070057239961044');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4070057239961044&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<!-- ============================================================ -->
+<!-- ==============  META PIXEL CODE — PASTE HERE  =============== -->
+<!-- ============================================================ -->
+<!--
+  Paste your FULL Meta Pixel base code (everything Facebook gives you,
+  from <script> ... </script> down to the <noscript> tag) between the
+  two marker lines below. Do not remove the marker comments.
+-->
+<!-- META PIXEL START -->
+
+<!-- META PIXEL END -->
+<!-- ============================================================ -->
 
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html, body {
-    width:100%; height:100%;
-    overflow-x:hidden;
-    background:#05050a;
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  :root{
+    --bg: #050505;
+    --ink: #f5f5f0;
+    --muted: #8a8a86;
+    --green: #22c55e;
+    --green-bright: #4ade80;
+    --green-glow: rgba(34,197,94,0.45);
   }
-  body {
-    min-height:100vh;
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html,body{
+    height:100%;
+    background:var(--bg);
+    overflow-x:hidden;
+  }
+
+  body{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color:var(--ink);
+    min-height:100dvh;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:24px 16px;
     position:relative;
+    padding: env(safe-area-inset-top,0px) 24px env(safe-area-inset-bottom,0px);
   }
 
-  /* Background glow */
-  body::before, body::after {
-    content:"";
+  /* ---------- Falling particle background ---------- */
+  #particles{
     position:fixed;
-    width:300px; height:300px;
-    border-radius:50%;
-    filter:blur(90px);
+    inset:0;
     z-index:0;
+    pointer-events:none;
   }
-  body::before { top:-80px; left:-80px; background:rgba(107,74,255,.35); }
-  body::after { bottom:-80px; right:-80px; background:rgba(0,153,255,.3); }
 
-  .card {
+  /* ---------- Content ---------- */
+  .stage{
     position:relative;
-    z-index:1;
+    z-index:2;
     width:100%;
-    max-width:400px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:24px;
-    padding:40px 24px;
-    text-align:center;
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-    box-shadow:0 8px 40px rgba(0,0,0,.5);
-    animation:fadeIn .7s ease both;
-  }
-  @keyframes fadeIn {
-    from { opacity:0; transform:translateY(16px); }
-    to   { opacity:1; transform:translateY(0); }
-  }
-
-  .avatar-wrap {
-    width:100px; height:100px;
-    margin:0 auto 20px;
-    border-radius:50%;
-    animation:floatAvatar 3.6s ease-in-out infinite;
-  }
-  @keyframes floatAvatar {
-    0%,100% { transform:translateY(0); }
-    50%     { transform:translateY(-8px); }
-  }
-  .avatar {
-    width:100px; height:100px;
-    border-radius:50%;
-    object-fit:cover;
-    display:block;
-    border:2px solid rgba(140,120,255,.8);
-    box-shadow:0 0 18px rgba(140,120,255,.55), 0 0 36px rgba(0,153,255,.35);
-  }
-
-  .brand-name {
-    font-size:26px;
-    font-weight:800;
-    letter-spacing:.5px;
-    background:linear-gradient(90deg,#8c78ff,#6a9bff);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    margin-bottom:8px;
-  }
-
-  .badge {
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.5px;
-    color:#8c9dff;
-    background:rgba(140,120,255,.12);
-    border:1px solid rgba(140,120,255,.35);
-    padding:6px 12px;
-    border-radius:999px;
-    margin-bottom:18px;
-  }
-
-  .desc {
-    font-size:14px;
-    line-height:1.6;
-    color:#b8b8c8;
-    margin-bottom:8px;
-    padding:0 4px;
-  }
-
-  .cta-btn {
+    max-width:420px;
     display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    animation: rise 900ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(18px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* ---------- Profile image ---------- */
+  .avatar-ring{
+    width:112px;
+    height:112px;
+    border-radius:50%;
+    padding:3px;
+    background: conic-gradient(from 180deg, var(--green), transparent 40%, var(--green) 100%);
+    margin-bottom:28px;
+  }
+
+  .avatar{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background: #111 center/cover no-repeat;
+    border:3px solid var(--bg);
+
+    /* ============================================================ */
+    /* ============  PROFILE IMAGE URL — PASTE HERE  =============== */
+    /* ============================================================ */
+    /* Replace YOUR_IMAGE_URL_HERE with your image link below.       */
+    background-image: url('https://i.ibb.co/cRM79vv/Whats-App-Image-2026-07-06-at-08-00-30.jpg');
+    /* ============================================================ */
+  }
+
+  /* ---------- Name ---------- */
+  .name{
+    font-size: clamp(22px, 6vw, 28px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    margin-bottom: 56px;
+  }
+
+  /* ---------- CTA button ---------- */
+  .cta{
+    position:relative;
+    display:inline-flex;
     align-items:center;
     justify-content:center;
     gap:10px;
-    width:100%;
-    margin-top:24px;
-    padding:16px 20px;
+    padding:17px 44px;
     font-size:16px;
-    font-weight:700;
-    color:#fff;
+    font-weight:600;
+    letter-spacing:0.01em;
+    color:#06210f;
+    background:linear-gradient(135deg, var(--green-bright), var(--green));
+    border-radius:100px;
     text-decoration:none;
     border:none;
-    border-radius:14px;
     cursor:pointer;
-    background:linear-gradient(90deg,#6a4cff,#3d8bff);
-    box-shadow:0 0 22px rgba(106,76,255,.5);
-    animation:pulse 2.4s ease-in-out infinite;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .cta-btn:hover {
-    transform:scale(1.03);
-    box-shadow:0 0 32px rgba(106,76,255,.75);
-  }
-  .cta-btn:active { transform:scale(.97); }
-  @keyframes pulse {
-    0%,100% { box-shadow:0 0 22px rgba(106,76,255,.5); }
-    50%     { box-shadow:0 0 34px rgba(61,139,255,.8); }
-  }
-  .cta-btn svg { width:20px; height:20px; flex-shrink:0; }
-
-  .spinner-wrap {
-    margin-top:18px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-  }
-  .spinner {
-    width:18px; height:18px;
-    border-radius:50%;
-    border:2px solid rgba(140,120,255,.25);
-    border-top-color:#8c78ff;
-    animation:spin .8s linear infinite;
-  }
-  @keyframes spin { to { transform:rotate(360deg); } }
-  .spinner-text {
-    font-size:12px;
-    color:#7a7a8c;
+    box-shadow: 0 0 0 0 var(--green-glow);
+    animation: pulse 2.4s ease-out infinite;
+    transition: transform 180ms ease;
   }
 
-  .footer {
-    margin-top:22px;
-    font-size:11px;
-    color:#55556a;
+  .cta:active{ transform:scale(0.96); }
+
+  .cta svg{ width:19px; height:19px; flex-shrink:0; }
+
+  @keyframes pulse{
+    0%   { box-shadow: 0 0 0 0 var(--green-glow); }
+    70%  { box-shadow: 0 0 0 16px rgba(34,197,94,0); }
+    100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .cta{ animation:none; }
+    .stage{ animation:none; }
+  }
+
+  .footnote{
+    margin-top:20px;
+    font-size:12.5px;
+    color:var(--muted);
   }
 </style>
 </head>
 <body>
 
-<div class="card">
-  <div class="avatar-wrap">
-    <img class="avatar" id="profileImg" src="PROFILE_IMAGE_URL" alt="SURYA BHAI">
+<!-- META PIXEL noscript fallback also goes inside the marker block above -->
+
+<canvas id="particles"></canvas>
+
+<div class="stage">
+  <div class="avatar-ring">
+    <div class="avatar"></div>
   </div>
 
-  <h1 class="brand-name">SURYA BHAI</h1>
+  <div class="name">SURYA BHAI</div>
 
-  <div class="badge">✓ OFFICIAL COMMUNITY</div>
-
-  <p class="desc">
-    Join the SURYA BHAI community and stay connected with our latest updates and information.
-  </p>
-
-  <a href="TELEGRAM_LINK" target="_blank" rel="noopener noreferrer" class="cta-btn" id="joinBtn">
+  <!-- ============================================================ -->
+  <!-- ==============  TELEGRAM LINK — PASTE HERE  ================= -->
+  <!-- ============================================================ -->
+  <a class="cta" href="https://t.me/+V60rnnmAzV9iYjll" target="_blank" rel="noopener">
+  <!-- ============================================================ -->
     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.2 3.6 2.9 10.7c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8.4 0 .6-.2.9-.5l2.1-2 4.4 3.2c.8.5 1.4.2 1.6-.7l3-14c.3-1.2-.4-1.7-1.8-1.5Z" fill="white"/>
+      <path d="M21.05 3.24 2.98 10.36c-1.24.5-1.23 1.2-.23 1.5l4.63 1.45 1.79 5.5c.22.6.37.84.76.84.3 0 .44-.14.63-.32l1.7-1.65 3.54 2.6c.65.36 1.12.17 1.28-.6l2.32-10.9c.24-1-.34-1.42-1.35-1.03Z" fill="currentColor"/>
     </svg>
-    JOIN TELEGRAM
+    Join Telegram
   </a>
 
-  <div class="spinner-wrap">
-    <div class="spinner"></div>
-    <span class="spinner-text">Redirecting you now…</span>
-  </div>
-
-  <div class="footer">© 2026 SURYA BHAI</div>
+  <div class="footnote">Tap to join the channel</div>
 </div>
 
 <script>
-  /* ======================= EDITABLE SETTINGS ======================= */
-  /* 1. Telegram destination link - change this to your channel URL   */
-  const TELEGRAM_LINK = "https://t.me/+vndFJyRGc0xlNjll"; // e.g. "https://t.me/yourusername"
+  // ---------- Falling particle background ----------
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let w, h, particles;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* 2. Profile image URL - change to your logo/avatar image           */
-  const PROFILE_IMAGE_URL = "https://i.ibb.co/Kx0ZHq6p/Whats-App-Image-2026-08-23-at-8-01-24-PM.jpg";
-  /* =================================================================== */
-
-  // Apply profile image and CTA link
-  document.getElementById("profileImg").src = PROFILE_IMAGE_URL;
-  document.getElementById("joinBtn").href = TELEGRAM_LINK;
-
-  // Fire Meta Pixel PageView if pixel code has been added above
-  if (typeof fbq === "function") {
-    fbq('track', 'PageView');
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
   }
 
-  // Track manual CTA button clicks
-  document.getElementById("joinBtn").addEventListener("click", function () {
-    if (typeof fbq === "function") {
-      fbq('trackCustom', 'JoinTelegram');
-    }
-  });
+  function makeParticles(){
+    const count = Math.min(70, Math.floor((w*h)/18000));
+    particles = Array.from({length:count}, () => ({
+      x: Math.random()*w,
+      y: Math.random()*h,
+      r: Math.random()*1.6 + 0.4,
+      speed: Math.random()*0.6 + 0.15,
+      drift: (Math.random()-0.5)*0.25,
+      alpha: Math.random()*0.5 + 0.15
+    }));
+  }
 
-  // Automatic redirect after 2 seconds (no visible countdown)
-  setTimeout(function () {
-    if (typeof fbq === "function") {
-      fbq('trackCustom', 'JoinTelegram');
+  function tick(){
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle = '#ffffff';
+    for(const p of particles){
+      ctx.globalAlpha = p.alpha;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+
+      p.y += p.speed;
+      p.x += p.drift;
+
+      if(p.y > h + 4){ p.y = -4; p.x = Math.random()*w; }
+      if(p.x < -4) p.x = w+4;
+      if(p.x > w+4) p.x = -4;
     }
-    window.location.href = TELEGRAM_LINK;
-  }, 20000);
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(tick);
+  }
+
+  resize();
+  makeParticles();
+  window.addEventListener('resize', () => { resize(); makeParticles(); });
+
+  if(!reduceMotion){
+    requestAnimationFrame(tick);
+  } else {
+    tick(); // draw one static frame only
+  }
 </script>
 
 </body>
