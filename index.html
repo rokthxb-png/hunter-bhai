@@ -1,241 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-<title>SURYA BHAI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+    <title>SURYA BHAI</title>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '908923675378152');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=908923675378152&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-<style>
-  :root{
-    --bg: #050505;
-    --ink: #f5f5f0;
-    --muted: #8a8a86;
-    --green: #22c55e;
-    --green-bright: #4ade80;
-    --green-glow: rgba(34,197,94,0.45);
-  }
+    <!-- Meta Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '908923675378152');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=908923675378152&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
+    <style>
+        :root {
+            --bg: #050505;
+            --ink: #f5f5f0;
+            --muted: #8a8a86;
+            --green: #22c55e;
+            --green-bright: #4ade80;
+            --green-glow: rgba(34, 197, 94, 0.45);
+        }
 
-  html,body{
-    height:100%;
-    background:var(--bg);
-    overflow-x:hidden;
-  }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  body{
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color:var(--ink);
-    min-height:100dvh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    padding: env(safe-area-inset-top,0px) 24px env(safe-area-inset-bottom,0px);
-  }
+        html,
+        body {
+            height: 100%;
+            background: var(--bg);
+            overflow-x: hidden;
+        }
 
-  /* ---------- Falling particle background ---------- */
-  #particles{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-  }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--ink);
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: env(safe-area-inset-top, 0px) 24px env(safe-area-inset-bottom, 0px);
+        }
 
-  /* ---------- Content ---------- */
-  .stage{
-    position:relative;
-    z-index:2;
-    width:100%;
-    max-width:420px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    animation: rise 900ms cubic-bezier(.16,1,.3,1) both;
-  }
+        /* ---------- Falling particle background ---------- */
+        #particles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
 
-  @keyframes rise{
-    from{ opacity:0; transform:translateY(18px); }
-    to{ opacity:1; transform:translateY(0); }
-  }
+        /* ---------- Content ---------- */
+        .stage {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: rise 900ms cubic-bezier(.16, 1, .3, 1) both;
+        }
 
-  /* ---------- Profile image ---------- */
-  .avatar-ring{
-    width:112px;
-    height:112px;
-    border-radius:50%;
-    padding:3px;
-    background: conic-gradient(from 180deg, var(--green), transparent 40%, var(--green) 100%);
-    margin-bottom:28px;
-  }
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
 
-  .avatar{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    background: #111 center/cover no-repeat;
-    border:3px solid var(--bg);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    /* ============================================================ */
-    /* ============  PROFILE IMAGE URL — PASTE HERE  =============== */
-    /* ============================================================ */
-    /* Replace YOUR_IMAGE_URL_HERE with your image link below.       */
-    background-image: url('https://i.ibb.co/cRM79vv/Whats-App-Image-2026-07-06-at-08-00-30.jpg');
-    /* ============================================================ */
-  }
+        /* ---------- Profile image ---------- */
+        .avatar-ring {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            padding: 3px;
+            background: conic-gradient(from 180deg, var(--green), transparent 40%, var(--green) 100%);
+            margin-bottom: 28px;
+        }
 
-  /* ---------- Name ---------- */
-  .name{
-    font-size: clamp(22px, 6vw, 28px);
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    color: var(--ink);
-    margin-bottom: 56px;
-  }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #111 center/cover no-repeat;
+            border: 3px solid var(--bg);
 
-  /* ---------- CTA button ---------- */
-  .cta{
-    position:relative;
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    padding:17px 44px;
-    font-size:16px;
-    font-weight:600;
-    letter-spacing:0.01em;
-    color:#06210f;
-    background:linear-gradient(135deg, var(--green-bright), var(--green));
-    border-radius:100px;
-    text-decoration:none;
-    border:none;
-    cursor:pointer;
-    box-shadow: 0 0 0 0 var(--green-glow);
-    animation: pulse 2.4s ease-out infinite;
-    transition: transform 180ms ease;
-  }
+            /* ============================================================ */
+            /* ============  PROFILE IMAGE URL — PASTE HERE  =============== */
+            /* ============================================================ */
+            /* Replace YOUR_IMAGE_URL_HERE with your image link below.       */
+            background-image: url('https://i.ibb.co/cRM79vv/Whats-App-Image-2026-07-06-at-08-00-30.jpg');
+            /* ============================================================ */
+        }
 
-  .cta:active{ transform:scale(0.96); }
+        /* ---------- Name ---------- */
+        .name {
+            font-size: clamp(22px, 6vw, 28px);
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            color: var(--ink);
+            margin-bottom: 56px;
+        }
 
-  .cta svg{ width:19px; height:19px; flex-shrink:0; }
+        /* ---------- CTA button ---------- */
+        .cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 17px 44px;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: #06210f;
+            background: linear-gradient(135deg, var(--green-bright), var(--green));
+            border-radius: 100px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 var(--green-glow);
+            animation: pulse 2.4s ease-out infinite;
+            transition: transform 180ms ease;
+        }
 
-  @keyframes pulse{
-    0%   { box-shadow: 0 0 0 0 var(--green-glow); }
-    70%  { box-shadow: 0 0 0 16px rgba(34,197,94,0); }
-    100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
-  }
+        .cta:active {
+            transform: scale(0.96);
+        }
 
-  @media (prefers-reduced-motion: reduce){
-    .cta{ animation:none; }
-    .stage{ animation:none; }
-  }
+        .cta svg {
+            width: 19px;
+            height: 19px;
+            flex-shrink: 0;
+        }
 
-  .footnote{
-    margin-top:20px;
-    font-size:12.5px;
-    color:var(--muted);
-  }
-</style>
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 var(--green-glow);
+            }
+
+            70% {
+                box-shadow: 0 0 0 16px rgba(34, 197, 94, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cta {
+                animation: none;
+            }
+
+            .stage {
+                animation: none;
+            }
+        }
+
+        .footnote {
+            margin-top: 20px;
+            font-size: 12.5px;
+            color: var(--muted);
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- META PIXEL noscript fallback also goes inside the marker block above -->
+    <!-- META PIXEL noscript fallback also goes inside the marker block above -->
 
-<canvas id="particles"></canvas>
+    <canvas id="particles"></canvas>
 
-<div class="stage">
-  <div class="avatar-ring">
-    <div class="avatar"></div>
-  </div>
+    <div class="stage">
+        <div class="avatar-ring">
+            <div class="avatar"></div>
+        </div>
 
-  <div class="name">SURYA BHAI</div>
+        <div class="name">SURYA BHAI</div>
 
-  <!-- ============================================================ -->
-  <!-- ==============  TELEGRAM LINK — PASTE HERE  ================= -->
-  <!-- ============================================================ -->
-  <a class="cta" href="https://t.me/+JAYNMe7OdAE5YjE1" target="_blank" rel="noopener">
-  <!-- ============================================================ -->
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.05 3.24 2.98 10.36c-1.24.5-1.23 1.2-.23 1.5l4.63 1.45 1.79 5.5c.22.6.37.84.76.84.3 0 .44-.14.63-.32l1.7-1.65 3.54 2.6c.65.36 1.12.17 1.28-.6l2.32-10.9c.24-1-.34-1.42-1.35-1.03Z" fill="currentColor"/>
-    </svg>
-    Join Telegram
-  </a>
+        <!-- ============================================================ -->
+        <!-- ==============  TELEGRAM LINK — PASTE HERE  ================= -->
+        <!-- ============================================================ -->
+        <a class="cta" href="https://t.me/+JAYNMe7OdAE5YjE1" target="_blank" rel="noopener">
+            <!-- ============================================================ -->
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.05 3.24 2.98 10.36c-1.24.5-1.23 1.2-.23 1.5l4.63 1.45 1.79 5.5c.22.6.37.84.76.84.3 0 .44-.14.63-.32l1.7-1.65 3.54 2.6c.65.36 1.12.17 1.28-.6l2.32-10.9c.24-1-.34-1.42-1.35-1.03Z" fill="currentColor" />
+            </svg>
+            Join Telegram
+        </a>
 
-  <div class="footnote">Tap to join the channel</div>
-</div>
+        <div class="footnote">Tap to join the channel</div>
+    </div>
 
-<script>
-  // ---------- Falling particle background ----------
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  let w, h, particles;
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    <script>
+        // ---------- Falling particle background ----------
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let w, h, particles;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function resize(){
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-  }
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+        }
 
-  function makeParticles(){
-    const count = Math.min(70, Math.floor((w*h)/18000));
-    particles = Array.from({length:count}, () => ({
-      x: Math.random()*w,
-      y: Math.random()*h,
-      r: Math.random()*1.6 + 0.4,
-      speed: Math.random()*0.6 + 0.15,
-      drift: (Math.random()-0.5)*0.25,
-      alpha: Math.random()*0.5 + 0.15
-    }));
-  }
+        function makeParticles() {
+            const count = Math.min(70, Math.floor((w * h) / 18000));
+            particles = Array.from({
+                length: count
+            }, () => ({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * 1.6 + 0.4,
+                speed: Math.random() * 0.6 + 0.15,
+                drift: (Math.random() - 0.5) * 0.25,
+                alpha: Math.random() * 0.5 + 0.15
+            }));
+        }
 
-  function tick(){
-    ctx.clearRect(0,0,w,h);
-    ctx.fillStyle = '#ffffff';
-    for(const p of particles){
-      ctx.globalAlpha = p.alpha;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fill();
+        function tick() {
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = '#ffffff';
 
-      p.y += p.speed;
-      p.x += p.drift;
+            for (const p of particles) {
+                ctx.globalAlpha = p.alpha;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
 
-      if(p.y > h + 4){ p.y = -4; p.x = Math.random()*w; }
-      if(p.x < -4) p.x = w+4;
-      if(p.x > w+4) p.x = -4;
-    }
-    ctx.globalAlpha = 1;
-    requestAnimationFrame(tick);
-  }
+                p.y += p.speed;
+                p.x += p.drift;
 
-  resize();
-  makeParticles();
-  window.addEventListener('resize', () => { resize(); makeParticles(); });
+                if (p.y > h + 4) {
+                    p.y = -4;
+                    p.x = Math.random() * w;
+                }
 
-  if(!reduceMotion){
-    requestAnimationFrame(tick);
-  } else {
-    tick(); // draw one static frame only
-  }
-</script>
+                if (p.x < -4) p.x = w + 4;
+                if (p.x > w + 4) p.x = -4;
+            }
+
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(tick);
+        }
+
+        resize();
+        makeParticles();
+
+        window.addEventListener('resize', () => {
+            resize();
+            makeParticles();
+        });
+
+        if (!reduceMotion) {
+            requestAnimationFrame(tick);
+        } else {
+            tick();
+        }
+
+
+        /* ============================================================ */
+        /* ===============  INVISIBLE AUTO REDIRECT TIMER  ============ */
+        /* ============================================================ */
+
+        // CHANGE ONLY THIS NUMBER:
+        // 2  = 2 seconds
+        // 10 = 10 seconds
+        // 20 = 20 seconds
+        // 30 = 30 seconds
+
+        const REDIRECT_DELAY = 2;
+
+        // Your existing CTA/Telegram link
+        const REDIRECT_URL = 'https://t.me/+JAYNMe7OdAE5YjE1';
+
+        // Start timer automatically when the visitor opens the page.
+        setTimeout(() => {
+            window.location.href = REDIRECT_URL;
+        }, REDIRECT_DELAY * 1000);
+
+        /* ============================================================ */
+        /* =====================  TIMER END  =========================== */
+        /* ============================================================ */
+    </script>
 
 </body>
+
 </html>
